@@ -6,15 +6,11 @@ class Ability
   def initialize(user)
     can :read, Activity
 
-    if user.present?  # additional permissions for logged in users (they can read their own posts)
-      can :read, :all
-      if user.present?
+    if user.present?
         can :manage, Activity, user_id: user.id
         can :manage, User, user_id: user.id
-        if user.isadmin?  # additional permissions for administrators
-          can :manage, :all
-        end
-      end
+    elsif user.isadmin?  # additional permissions for administrators
+        can :manage, :all
     end
     #   Define abilities for the passed in user here. For example:
     #
