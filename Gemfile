@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'cancancan'
+gem "actionview", "~> 6.0.2.2"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
