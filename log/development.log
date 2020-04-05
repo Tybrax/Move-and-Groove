@@ -7181,3 +7181,413 @@ Processing by Devise::RegistrationsController#edit as HTML
 Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.2ms | Allocations: 9975)
 
 
+Started GET "/activities" for ::1 at 2020-04-05 11:56:15 +0200
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 1176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 303ms (Views: 196.9ms | ActiveRecord: 2.7ms | Allocations: 37766)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 11:57:17 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 630)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 0.4ms | Allocations: 9025)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 11:57:21 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 629)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 53.8ms | ActiveRecord: 0.4ms | Allocations: 9035)
+
+
+Started GET "/" for ::1 at 2020-04-05 11:57:24 +0200
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:21
+Completed 200 OK in 61ms (Views: 58.4ms | ActiveRecord: 0.3ms | Allocations: 7984)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 11:57:59 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 634)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 56.8ms | ActiveRecord: 0.4ms | Allocations: 9016)
+
+
+Started GET "/activities/new" for ::1 at 2020-04-05 11:58:00 +0200
+Processing by ActivitiesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/new.html.erb within layouts/application
+  Rendered activities/_form.html.erb (Duration: 50.6ms | Allocations: 8248)
+  Rendered activities/new.html.erb within layouts/application (Duration: 53.6ms | Allocations: 8608)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 117ms (Views: 103.6ms | ActiveRecord: 0.9ms | Allocations: 22473)
+
+
+Started POST "/activities" for ::1 at 2020-04-05 11:58:15 +0200
+Processing by ActivitiesController#create as HTML
+  Parameters: {"authenticity_token"=>"3bIzyAIUprzwsgUpmbt0pIcTJPD0M1h4JryBmWZrNiGhlYCkFVk99Gi6RTICAdwAZ7I53AV9uSOF5xZzWthOrg==", "activity"=>{"name"=>"Running", "user_id"=>"", "duration"=>"00:15", "date"=>"", "time"=>""}, "commit"=>"Create Activity"}
+[31mUnpermitted parameter: :user_id[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user_id[0m
+[31mUnpermitted parameter: :user_id[0m
+[31mUnpermitted parameter: :user_id[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/activities_controller.rb:36:in `block in create'
+  [1m[36mActivity Create (1.7ms)[0m  [1m[32mINSERT INTO "activities" ("name", "user_id", "created_at", "updated_at", "duration") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Running"], ["user_id", 5], ["created_at", "2020-04-05 09:58:15.216707"], ["updated_at", "2020-04-05 09:58:15.216707"], ["duration", "00:15"]]
+  ↳ app/controllers/activities_controller.rb:36:in `block in create'
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/activities_controller.rb:36:in `block in create'
+Redirected to http://localhost:3000/activities/1
+Completed 302 Found in 54ms (ActiveRecord: 15.0ms | Allocations: 7209)
+
+
+Started GET "/activities/1" for ::1 at 2020-04-05 11:58:15 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 1521)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 76ms (Views: 68.4ms | ActiveRecord: 0.5ms | Allocations: 11018)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 11:58:25 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 758)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 52.5ms | ActiveRecord: 0.4ms | Allocations: 9133)
+
+
+Started GET "/activities/1" for ::1 at 2020-04-05 11:58:27 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1243)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 75ms (Views: 70.1ms | ActiveRecord: 0.3ms | Allocations: 10469)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:07:08 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 776)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 65.5ms | ActiveRecord: 0.8ms | Allocations: 9188)
+
+
+Started GET "/activities/1/edit" for ::1 at 2020-04-05 12:07:10 +0200
+Processing by ActivitiesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/edit.html.erb within layouts/application
+  Rendered activities/_form.html.erb (Duration: 2.9ms | Allocations: 1663)
+  Rendered activities/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1930)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 59.6ms | ActiveRecord: 0.6ms | Allocations: 11417)
+
+
+Started PATCH "/activities/1" for ::1 at 2020-04-05 12:07:15 +0200
+Processing by ActivitiesController#update as HTML
+  Parameters: {"authenticity_token"=>"U1hSk5QfvRJgaT5yi1rhfL4voFnySgslqTEKn9OUR3+eQhLCDBFIVWi0G3yOJtVK6fMYx9VAJrDuum3L0Ejtrg==", "activity"=>{"name"=>"Running", "user_id"=>"", "duration"=>"00:15", "date"=>"", "time"=>""}, "commit"=>"Update Activity", "id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user_id[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+Redirected to http://localhost:3000/activities/1
+Completed 302 Found in 21ms (ActiveRecord: 0.9ms | Allocations: 7095)
+
+
+Started GET "/activities/1" for ::1 at 2020-04-05 12:07:15 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 52.9ms | ActiveRecord: 0.3ms | Allocations: 10462)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:07:58 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1013)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 58.6ms | ActiveRecord: 0.4ms | Allocations: 10850)
+
+
+Started GET "/activities/1/edit" for ::1 at 2020-04-05 12:08:01 +0200
+Processing by ActivitiesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/edit.html.erb within layouts/application
+  Rendered activities/_form.html.erb (Duration: 2.8ms | Allocations: 1857)
+  Rendered activities/edit.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2255)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 120ms (Views: 111.0ms | ActiveRecord: 0.3ms | Allocations: 11730)
+
+
+Started GET "/activities/1" for ::1 at 2020-04-05 12:08:13 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1488)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 63ms (Views: 56.3ms | ActiveRecord: 0.3ms | Allocations: 10829)
+
+
+Started GET "/activities/1" for ::1 at 2020-04-05 12:08:24 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1462)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 64.0ms | ActiveRecord: 0.7ms | Allocations: 12133)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:08:40 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1013)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 50.7ms | ActiveRecord: 0.4ms | Allocations: 9536)
+
+
+Started GET "/activities/1/edit" for ::1 at 2020-04-05 12:08:42 +0200
+Processing by ActivitiesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/edit.html.erb within layouts/application
+  Rendered activities/_form.html.erb (Duration: 2.4ms | Allocations: 1857)
+  Rendered activities/edit.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 66.5ms | ActiveRecord: 0.4ms | Allocations: 11713)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:08:46 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 755)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 46.8ms | ActiveRecord: 0.4ms | Allocations: 9134)
+
+
+Started GET "/activities/1" for ::1 at 2020-04-05 12:08:49 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 0.4ms | Allocations: 10471)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:11:14 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 62.7ms | ActiveRecord: 0.5ms | Allocations: 10847)
+
+
+Started GET "/activities/new" for ::1 at 2020-04-05 12:11:16 +0200
+Processing by ActivitiesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/new.html.erb within layouts/application
+  Rendered activities/_form.html.erb (Duration: 7.0ms | Allocations: 2222)
+  Rendered activities/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2573)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 58.4ms | ActiveRecord: 0.2ms | Allocations: 11170)
+
+
+Started POST "/activities" for ::1 at 2020-04-05 12:11:40 +0200
+Processing by ActivitiesController#create as HTML
+  Parameters: {"authenticity_token"=>"a8WNmdL4hhWXFX2G4Ex7OMvujt5X7SR9Bd4Eh+Ah1a4X4j71xbUdXQ8dPZ179tOcK0+T8qajxSamhZNt3JKtIQ==", "activity"=>{"name"=>"Cycling", "duration"=>"00:15", "date"=>"2020-04-08", "time"=>"03:00", "description"=>"Cycling very early in the morning"}, "commit"=>"Create Activity"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/activities_controller.rb:36:in `block in create'
+  [1m[36mActivity Create (1.0ms)[0m  [1m[32mINSERT INTO "activities" ("name", "description", "user_id", "created_at", "updated_at", "duration", "date", "time") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cycling"], ["description", "Cycling very early in the morning"], ["user_id", 5], ["created_at", "2020-04-05 10:11:40.659463"], ["updated_at", "2020-04-05 10:11:40.659463"], ["duration", "00:15"], ["date", "2020-04-08"], ["time", "2000-01-01 03:00:00"]]
+  ↳ app/controllers/activities_controller.rb:36:in `block in create'
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/activities_controller.rb:36:in `block in create'
+Redirected to http://localhost:3000/activities/2
+Completed 302 Found in 17ms (ActiveRecord: 5.0ms | Allocations: 5125)
+
+
+Started GET "/activities/2" for ::1 at 2020-04-05 12:11:40 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 10.6ms | Allocations: 1474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 61.1ms | ActiveRecord: 0.6ms | Allocations: 10838)
+
+
+Started GET "/activities/2" for ::1 at 2020-04-05 12:11:53 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1458)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 108ms (Views: 98.0ms | ActiveRecord: 0.7ms | Allocations: 12112)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:11:57 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1144)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 50.8ms | ActiveRecord: 0.4ms | Allocations: 9653)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:12:15 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1126)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 63.1ms | ActiveRecord: 0.4ms | Allocations: 10948)
+
+
+Started GET "/activities/2" for ::1 at 2020-04-05 12:12:19 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 52.3ms | ActiveRecord: 0.4ms | Allocations: 10806)
+
+
+Started GET "/activities" for ::1 at 2020-04-05 12:12:24 +0200
+Processing by ActivitiesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/index.html.erb within layouts/application
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/activities/index.html.erb:11
+  Rendered activities/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 0.4ms | Allocations: 9257)
+
+
+Started GET "/activities/2/edit" for ::1 at 2020-04-05 12:12:26 +0200
+Processing by ActivitiesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mActivity Load (0.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/edit.html.erb within layouts/application
+  Rendered activities/_form.html.erb (Duration: 3.1ms | Allocations: 2136)
+  Rendered activities/edit.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2539)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 53.4ms | ActiveRecord: 0.3ms | Allocations: 12012)
+
+
+Started PATCH "/activities/2" for ::1 at 2020-04-05 12:12:31 +0200
+Processing by ActivitiesController#update as HTML
+  Parameters: {"authenticity_token"=>"DoYPSZz3NFv3hpYVN0N4FslufK9AsrBozxwT9Ai6zK2luSCAaTmlf9HE1MzR4gwFprBW4jQ7CbmSiAAxxXfMZw==", "activity"=>{"name"=>"Cycling", "duration"=>"00:15", "date"=>"2020-04-08", "time"=>"03:00:00.000", "description"=>"Cycling very early in the morning is cool"}, "commit"=>"Update Activity", "id"=>"2"}
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+  [1m[36mActivity Update (0.8ms)[0m  [1m[33mUPDATE "activities" SET "description" = ?, "updated_at" = ? WHERE "activities"."id" = ?[0m  [["description", "Cycling very early in the morning is cool"], ["updated_at", "2020-04-05 10:12:31.250497"], ["id", 2]]
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/activities_controller.rb:50:in `block in update'
+Redirected to http://localhost:3000/activities/2
+Completed 302 Found in 15ms (ActiveRecord: 6.8ms | Allocations: 7101)
+
+
+Started GET "/activities/2" for ::1 at 2020-04-05 12:12:31 +0200
+Processing by ActivitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mActivity Load (0.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities" WHERE "activities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering activities/show.html.erb within layouts/application
+  Rendered activities/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1237)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 62.1ms | ActiveRecord: 0.5ms | Allocations: 10452)
+
+
+Started GET "/" for ::1 at 2020-04-05 12:12:41 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 119)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:21
+Completed 200 OK in 72ms (Views: 64.2ms | ActiveRecord: 1.2ms | Allocations: 19272)
+
+
