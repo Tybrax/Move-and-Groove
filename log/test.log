@@ -1,2 +1,281 @@
   [1m[35m (4.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20200319132739)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "first_name" varchar, "last_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319132739"]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActivities (20200319172254)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "activities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7e11bb717f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_activities_on_user_id" ON "activities" ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319172254"]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDurationToActivities (20200319173243)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "activities" ADD "duration" int[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319173243"]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDateToActivities (20200319173459)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "activities" ADD "date" date[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319173459"]]
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTimeToActivities (20200319173535)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "activities" ADD "time" time[0m
+  [1m[36mprimary::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319173535"]]
+  [1m[35m (11.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIsadminToUsers (20200319175411)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "users" ADD "isadmin" boolean DEFAULT 0[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200319175411"]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeDurationToBeStringInActivities (20200320104358)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactivities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "duration" integer DEFAULT NULL, "date" date DEFAULT NULL, "time" time DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aactivities_on_user_id" ON "aactivities" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactivities" ("id","name","description","user_id","created_at","updated_at","duration","date","time")
+                     SELECT "id","name","description","user_id","created_at","updated_at","duration","date","time" FROM "activities"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "activities"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "activities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "duration" varchar DEFAULT NULL, "date" date DEFAULT NULL, "time" time DEFAULT NULL, CONSTRAINT "fk_rails_7e11bb717f"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_activities_on_user_id" ON "activities" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "activities" ("id","name","description","user_id","created_at","updated_at","duration","date","time")
+                     SELECT "id","name","description","user_id","created_at","updated_at","duration","date","time" FROM "aactivities"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aactivities"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200320104358"]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-03-20 20:34:29.786052"], ["updated_at", "2020-03-20 20:34:29.786052"]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:46.880030', '2020-03-20 20:34:46.880030');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:46.880030', '2020-03-20 20:34:46.880030');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:46.882030', '2020-03-20 20:34:46.882030');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:46.882030', '2020-03-20 20:34:46.882030')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:46.884030', '2020-03-20 20:34:46.884030');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:46.884030', '2020-03-20 20:34:46.884030');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:46.884030', '2020-03-20 20:34:46.884030');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:46.884030', '2020-03-20 20:34:46.884030')[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.2ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:47.064040', '2020-03-20 20:34:47.064040');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:47.064040', '2020-03-20 20:34:47.064040');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:47.064040', '2020-03-20 20:34:47.064040');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:47.064040', '2020-03-20 20:34:47.064040')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mFixtures Load (5000.1ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:47.066040', '2020-03-20 20:34:47.066040');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:47.066040', '2020-03-20 20:34:47.066040');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:47.066040', '2020-03-20 20:34:47.066040');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:47.066040', '2020-03-20 20:34:47.066040')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.7ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:52.101328', '2020-03-20 20:34:52.101328');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:52.101328', '2020-03-20 20:34:52.101328');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:52.101328', '2020-03-20 20:34:52.101328');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:52.101328', '2020-03-20 20:34:52.101328')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:52.132330', '2020-03-20 20:34:52.132330');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:52.132330', '2020-03-20 20:34:52.132330');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:52.132330', '2020-03-20 20:34:52.132330');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:52.132330', '2020-03-20 20:34:52.132330')[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.7ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 20:34:52.164332', '2020-03-20 20:34:52.164332');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 20:34:52.164332', '2020-03-20 20:34:52.164332');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 20:34:52.164332', '2020-03-20 20:34:52.164332');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 20:34:52.164332', '2020-03-20 20:34:52.164332')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:29:55.246257', '2020-03-20 21:29:55.246257');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:29:55.246257', '2020-03-20 21:29:55.246257');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:29:55.248258', '2020-03-20 21:29:55.248258');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:29:55.248258', '2020-03-20 21:29:55.248258')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:29:55.251258', '2020-03-20 21:29:55.251258');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:29:55.251258', '2020-03-20 21:29:55.251258');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:29:55.251258', '2020-03-20 21:29:55.251258');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:29:55.251258', '2020-03-20 21:29:55.251258')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:29:55.394266', '2020-03-20 21:29:55.394266');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:29:55.394266', '2020-03-20 21:29:55.394266');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:29:55.394266', '2020-03-20 21:29:55.394266');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:29:55.394266', '2020-03-20 21:29:55.394266')[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mFixtures Load (4999.8ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:29:55.395266', '2020-03-20 21:29:55.395266');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:29:55.395266', '2020-03-20 21:29:55.395266');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:29:55.396266', '2020-03-20 21:29:55.396266');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:29:55.396266', '2020-03-20 21:29:55.396266')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.8ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:30:00.429554', '2020-03-20 21:30:00.429554');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:30:00.429554', '2020-03-20 21:30:00.429554');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:30:00.429554', '2020-03-20 21:30:00.429554');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:30:00.429554', '2020-03-20 21:30:00.429554')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:30:00.432554', '2020-03-20 21:30:00.432554');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:30:00.432554', '2020-03-20 21:30:00.432554');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:30:00.432554', '2020-03-20 21:30:00.432554');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:30:00.432554', '2020-03-20 21:30:00.432554')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "activities";
+DELETE FROM "users";
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', 980190962, '2020-03-20 21:30:00.450555', '2020-03-20 21:30:00.450555');
+INSERT INTO "activities" ("id", "name", "description", "user_id", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyText', 298486374, '2020-03-20 21:30:00.450555', '2020-03-20 21:30:00.450555');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (980190962, '2020-03-20 21:30:00.450555', '2020-03-20 21:30:00.450555');
+INSERT INTO "users" ("id", "created_at", "updated_at") VALUES (298486374, '2020-03-20 21:30:00.450555', '2020-03-20 21:30:00.450555')[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m

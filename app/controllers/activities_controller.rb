@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!, except: [:show, :index]
 
   # GET /activities
   # GET /activities.json
@@ -29,7 +30,7 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-    @activity.user_id = current_user.id
+    @activity.user = current_user
 
     respond_to do |format|
       if @activity.save
@@ -69,6 +70,6 @@ class ActivitiesController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:name, :description, :user_id, :duration, :date, :time)
+      params.require(:activity).permit(:name, :description, :duration, :date, :time)
     end
 end
