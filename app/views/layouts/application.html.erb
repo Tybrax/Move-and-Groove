@@ -7,10 +7,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse bg-light font-weight-bold">
       <div class="container">
         <div class="navbar-header">
           <%= link_to 'Move & Groove', root_path, class: 'navbar-brand' %>
@@ -42,6 +43,11 @@
           </div>
         </div>
       </nav>
+
+    <div class="container-fluid head-section vertical-center">
+        <h1 class="d-block mx-auto">MOVE & GROOVE</h1>
+    </div>
+
     <div class="container">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>">
@@ -52,8 +58,16 @@
     <%= yield :top_content %>
 
     <div class="container">
-        <h1><%= yield :header %></h1>
-        <%= yield %>
+      <h1><%= yield :header %></h1>
+      <%= yield %>
     </div>
+    <footer class="container-fluid bg-light">
+      <div class="text-center py-3">© 2020 Copyright:
+        <h6 class="font-weight-bold">Bastien RATAT</h6>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>

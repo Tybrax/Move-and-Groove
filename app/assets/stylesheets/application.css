@@ -18,10 +18,52 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Slabo+27px&display=swap');
+
+
+a.navbar-brand {
+    font-family: 'Slabo 27px', serif;
+    color: #844685;
+    font-size: 1.4em;
+}
+
+a.navbar-brand:hover {
+    color: #10375c;
+}
+
+body {
+    background-color: #faf4ff;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 .alert-alert {
   @extend .alert-warning;
 }
 
 .alert-notice {
   @extend .alert-info;
+}
+
+.head-section {
+    background-color: #10375c;
+    height: 100px;
+    color: white;
+    font-family: 'Slabo 27px', serif;
+    letter-spacing: 2px;
+}
+
+.card-title {
+    color: #844685;
+    font-family: 'Slabo 27px', serif;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+}
+
+.card-text {
+    color: #10375c;
+    font-family: 'Montserrat', sans-serif;
 }

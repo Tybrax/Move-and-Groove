@@ -1,7 +1,27 @@
-<% content_for :top_content do %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Welcome!</h1>
+<div class="container-fluid">
+    <div class="card-deck pt-5">
+        <div class="card shadow-lg pr-2">
+            <h4 class="card-title text-center pt-3 pb-3 font-weigth-bold">STAY HEALTHY</h4>
+            <p><%= image_tag "card1", class: 'activity-img img-fluid shadow d-block mx-auto' %></p>
+            <div class="card-body">
+                <p class="card-text text-justify ">Sport has tons of benefits. Not only it allows you to help manage your weight, but it also improve your overall health. It can be used to relieve your daily stress as well. Don't underestimate sport, don't underestimate yourself!</p>
+            </div>
+        </div>
+        <div class="card shadow-lg pr-2">
+            <h4 class="card-title text-center pt-3 pb-3 font-weigth-bold">MANAGE YOUR ROUTINE</h4>
+            <p><%= image_tag "card2", class: 'activity-img img-fluid shadow d-block mx-auto' %></p>
+            <div class="card-body">
+                <p class="card-text text-justify ">Move & Groove is helping thousand of people to keep motivated by adding daily workout routine. Pick an activity and schedule it at the best time for you. We offer you the best experience to help you with building a strong sport routine!</p>
+            </div>
+        </div>
+        <div class="card shadow-lg pr-2">
+            <h4 class="card-title text-center pt-3 pb-3 font-weigth-bold">TRACK YOUR PROGRESS</h4>
+            <p><%= image_tag "card3", class: 'activity-img img-fluid shadow d-block mx-auto' %></p>
+            <div class="card-body">
+                <p class="card-text text-justify ">Keep an eye on your activities. Reach your long run goal by adapting your work. Let yourself a note to keep track on your improvements!</p>
+            </div>
+        </div>
     </div>
-  </div>
-<% end %>
+</div>
+
+
