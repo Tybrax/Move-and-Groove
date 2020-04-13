@@ -10,14 +10,15 @@ Your Ruby on Rails application must have the following models:  User  and  Activ
 
 You must have at least 10 activity names that are selectable from a dropdown list for the user to select. Users cannot enter custom activities and must choose from your pre-defined list.
 
+# Versions
 Ruby version : 2.6
 Rails version : 6.0.2.2
 
-* Configuration
+# Configuration
 - in the app folder, run bundle install to install the gem in gemfile
 
-* Database initialization
+# Database initialization
 - in the ruby console, run rails db:migrate
 
-* Launch a local server on port 3000
+# Launch a local server on port 3000
 - run rails -s
