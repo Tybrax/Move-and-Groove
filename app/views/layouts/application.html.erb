@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
-  <body>
-    <nav class="navbar navbar-inverse bg-light font-weight-bold">
+  <body class="background">
+    <nav class="navbar navbar-inverse bg-dark font-weight-bold">
       <div class="container">
         <div class="navbar-header">
           <%= link_to 'Move & Groove', root_path, class: 'navbar-brand' %>
@@ -25,18 +25,20 @@
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
-              <%= current_user.first_name %> <%=current_user.last_name %>
-              <% if current_user.isadmin? %>
-                | Administrator
-              <% end %>
-              <ul class="dropdown-menu" role="menu">
-                <li><%= link_to 'Your profile', edit_user_registration_path %></li>
-                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              <li class="profile mt-3">
+                <%= current_user.first_name %> <%=current_user.last_name %>
+                  <% if current_user.isadmin? %>
+                    | Administrator
+                  <% end %>
+              </li>
+              <ul class="list-unstyled">
+                <li><%= link_to '- Your profile', edit_user_registration_path %></li>
+                <li><%= link_to '- Log out', destroy_user_session_path, method: :delete %></li>
               </ul>
             <% else %>
-              <ul>
-                <li><%= link_to 'Log In', new_user_session_path %></li>
-                <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <ul class="list-unstyled">
+                <li><%= link_to '- Log In', new_user_session_path, class: 'links' %></li>
+                <li><%= link_to '- Sign Up', new_user_registration_path, class: 'links' %></li>
               </ul>
             <% end %>
           </ul>
@@ -44,8 +46,8 @@
         </div>
       </nav>
 
-    <div class="container-fluid head-section vertical-center">
-        <h1 class="d-block mx-auto">MOVE & GROOVE</h1>
+    <div class="container-fluid jumbotron">
+        <h1 class="header text-center">UNLEASH YOUR POTENTIAL</h1>
     </div>
 
     <div class="container">
@@ -61,6 +63,33 @@
       <h1><%= yield :header %></h1>
       <%= yield %>
     </div>
+
+    <div class="container">
+    <div class="card-deck pt-5 pb-5">
+        <div class="card shadow-lg pr-2">
+            <h4 class="card-title text-center pt-3 pb-3 font-weigth-bold">STAY HEALTHY</h4>
+            <p><%= image_tag "card1", class: 'activity-img img-fluid shadow d-block mx-auto' %></p>
+            <div class="card-body">
+                <p class="card-text text-justify ">Sport has tons of benefits. Not only it allows you to help manage your weight, but it also improve your overall health. It can be used to relieve your daily stress as well. Don't underestimate sport, don't underestimate yourself!</p>
+            </div>
+        </div>
+        <div class="card shadow-lg pr-2">
+            <h4 class="card-title text-center pt-3 pb-3 font-weigth-bold">MANAGE YOUR ROUTINE</h4>
+            <p><%= image_tag "card2", class: 'activity-img img-fluid shadow d-block mx-auto' %></p>
+            <div class="card-body">
+                <p class="card-text text-justify ">Move & Groove is helping thousand of people to keep motivated by adding daily workout routine. Pick an activity and schedule it at the best time for you. We offer you the best experience to help you with building a strong sport routine!</p>
+            </div>
+        </div>
+        <div class="card shadow-lg pr-2">
+            <h4 class="card-title text-center pt-3 pb-3 font-weigth-bold">TRACK YOUR PROGRESS</h4>
+            <p><%= image_tag "card3", class: 'activity-img img-fluid shadow d-block mx-auto' %></p>
+            <div class="card-body">
+                <p class="card-text text-justify ">Keep an eye on your activities. Reach your long run goal by adapting your work. Let yourself a note to keep track on your improvements!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <footer class="container-fluid bg-light">
       <div class="text-center py-3">© 2020 Copyright:
         <h6 class="font-weight-bold">Bastien RATAT</h6>

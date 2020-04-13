@@ -20,19 +20,18 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Slabo+27px&display=swap');
 
+.background {
+    background-color: #2a2e36;
+}
 
 a.navbar-brand {
     font-family: 'Slabo 27px', serif;
-    color: #844685;
+    color: #7fcd91;
     font-size: 1.4em;
 }
 
 a.navbar-brand:hover {
     color: #10375c;
-}
-
-body {
-    background-color: #faf4ff;
 }
 
 .vertical-center {
@@ -48,22 +47,87 @@ body {
   @extend .alert-info;
 }
 
-.head-section {
-    background-color: #10375c;
-    height: 100px;
-    color: white;
+.header {
+    color: #7fcd91;
     font-family: 'Slabo 27px', serif;
     letter-spacing: 2px;
 }
 
 .card-title {
-    color: #844685;
+    color: #7fcd91;
     font-family: 'Slabo 27px', serif;
     letter-spacing: 1px;
     font-size: 1.5em;
 }
 
 .card-text {
-    color: #10375c;
+    color: #7fcd91;
     font-family: 'Montserrat', sans-serif;
+}
+
+div.card {
+    border: 1px solid #7fcd91;
+    background-color: #5b5656;
+}
+
+
+
+.main_picture {
+    height: 80%;
+    width: 80%;
+    border: 1px solid #7fcd91;
+}
+
+.sub-title {
+    color: #7fcd91;
+}
+
+input#user_email {
+    width: 30%;
+}
+
+input#user_password {
+    width: 30%;
+}
+
+label {
+    color: white;
+}
+
+.check-box {
+    color: #7fcd91;
+}
+
+a {
+    color: white !important;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+a:hover {
+    color: #7fcd91 !important;
+}
+
+.form-control {
+   width: 30% !important;
+}
+
+h6 {
+    color: white !important;
+}
+
+input#user_avatar {
+    color: white;
+}
+
+div.alert.alert-notice {
+    color: #7fcd91;
+}
+
+.links {
+    color: white !important;
+}
+
+.profile {
+    color: #7fcd91;
 }
